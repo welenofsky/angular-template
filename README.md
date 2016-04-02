@@ -10,13 +10,14 @@ After you have installed those dependencies start installing the node and bower 
 
 ## Install the node/bower dependencies
 ```
-node install
+npm install -g gulp-cli
+npm install
 bower install
 ```
 
-## Run Grunt
-Run grunt to get the distributable source code
+## Run Gulp
+Run gulp
 ```
-grunt default
+gulp
 ```
 
