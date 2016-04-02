@@ -11,6 +11,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
 var flatten = require('gulp-flatten');
+var livereload = require('gulp-livereload');
 
 
 // Clean
@@ -71,7 +72,8 @@ gulp.task('styles:less', function () {
 	}))
     .pipe(rename('main.css'))
     .pipe(gulp.dest('./css'))
-    .pipe(notify('LESS compiled successfully!'));
+    .pipe(notify('LESS compiled successfully!'))
+    .pipe(livereload());
 });
 
 gulp.task('scripts', [
@@ -139,11 +141,11 @@ gulp.task('compress:css', function(){
 		.pipe(rename({
 			suffix: '.min'
 		}))
-		.pipe(gulp.dest('./css'))
+		.pipe(gulp.dest('./css'));
 });
 
 gulp.task('watch', function(callback) {
-
+	livereload.listen();
 	// Watch .less files
 	gulp.watch('less/*.less', ['styles:refresh']);
 
